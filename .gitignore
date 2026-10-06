@@ -1,0 +1,22 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite
+*.db
+
+# Node dependencies & build artifacts
+node_modules/
+dist/
+build/
+
+# Pytest / Environment
+.pytest_cache/
+.env
+
+# Scratch & OS files
+.DS_Store
+Thumbs.db
+scratch/
+reports/
+*.log

@@ -1,0 +1,12 @@
+{
+  "rule_id": "RULE-005",
+  "name": "Suspicious Outbound Connection to Threat Indicator",
+  "description": "Detects outbound network communication targeting known malicious IP addresses or external Command & Control nodes.",
+  "severity": "CRITICAL",
+  "mitre_technique": "T1071",
+  "enabled": true,
+  "conditions": {
+    "event_type": "network_connection",
+    "known_bad_ips": ["185.220.101.5", "198.51.100.44", "45.154.255.120", "194.26.29.112"]
+  }
+}

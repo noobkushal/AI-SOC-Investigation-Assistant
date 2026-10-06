@@ -1,0 +1,13 @@
+{
+  "rule_id": "RULE-002",
+  "name": "Suspicious Encoded PowerShell Execution",
+  "description": "Detects execution of PowerShell with Base64 encoded commands, bypass execution policy flags, or hidden window styles.",
+  "severity": "CRITICAL",
+  "mitre_technique": "T1059.001",
+  "enabled": true,
+  "conditions": {
+    "event_type": "process_creation",
+    "process_match": "powershell.exe",
+    "keywords": ["-EncodedCommand", "-enc", "-ExecutionPolicy Bypass", "-nop", "-w hidden", "DownloadString"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "rule_id": "RULE-006",
+  "name": "Excessive Failed Authentication Spike",
+  "description": "Detects anomalous global spike in authentication failures exceeding 15 events within 3 minutes across enterprise directory.",
+  "severity": "MEDIUM",
+  "mitre_technique": "T1110.001",
+  "enabled": true,
+  "conditions": {
+    "event_type": "login_failure",
+    "threshold": 15,
+    "window_minutes": 3
+  }
+}

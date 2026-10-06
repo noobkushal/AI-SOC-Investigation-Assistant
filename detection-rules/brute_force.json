@@ -1,0 +1,14 @@
+{
+  "rule_id": "RULE-001",
+  "name": "Brute Force Authentication Attempt",
+  "description": "Detects multiple failed authentication attempts within a short time window from the same IP or targeting the same username.",
+  "severity": "HIGH",
+  "mitre_technique": "T1110",
+  "enabled": true,
+  "conditions": {
+    "event_type": "login_failure",
+    "threshold": 5,
+    "window_minutes": 5,
+    "group_by": ["source_ip", "username"]
+  }
+}

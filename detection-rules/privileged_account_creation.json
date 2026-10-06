@@ -1,0 +1,12 @@
+{
+  "rule_id": "RULE-003",
+  "name": "Privileged Account Creation",
+  "description": "Detects creation of new user accounts or elevation of privileges to Administrator / root.",
+  "severity": "HIGH",
+  "mitre_technique": "T1136",
+  "enabled": true,
+  "conditions": {
+    "event_type": "account_creation",
+    "keywords": ["useradd", "net user /add", "4720", "user_created", "Administrator", "wheel", "sudoers"]
+  }
+}

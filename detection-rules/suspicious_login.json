@@ -1,0 +1,13 @@
+{
+  "rule_id": "RULE-004",
+  "name": "Suspicious Login Behavior",
+  "description": "Detects login success immediately following multiple authentication failures or from unexpected source location.",
+  "severity": "HIGH",
+  "mitre_technique": "T1078",
+  "enabled": true,
+  "conditions": {
+    "event_type": "login_success",
+    "require_previous_failure": true,
+    "window_minutes": 10
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "rule_id": "RULE-007",
+  "name": "Potential Data Exfiltration Volume Spike",
+  "description": "Detects simplified behavioral indication of high outbound network byte transfers to unclassified external destinations.",
+  "severity": "HIGH",
+  "mitre_technique": "T1041",
+  "enabled": true,
+  "conditions": {
+    "event_type": "network_connection",
+    "min_bytes_out": 50000000
+  }
+}

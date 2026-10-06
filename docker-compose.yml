@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:15-alpine
+    container_name: soc-postgres
+    environment:
+      POSTGRES_USER: socuser
+      POSTGRES_PASSWORD: socpassword
+      POSTGRES_DB: socdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/Dockerfile.backend
+    container_name: soc-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://socuser:socpassword@database:5432/socdb
+      - SECRET_KEY=sentinel_soc_secret_key_super_secure_9921831
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile.frontend
+    container_name: soc-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
